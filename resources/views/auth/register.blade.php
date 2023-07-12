@@ -16,7 +16,7 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-        <!-- Email Address -->
+        <!-- Rol -->
         <div class="mt-4">
             <x-input-label for="rol" :value="__('¿Cuál es tu rol?')" />
             <select
