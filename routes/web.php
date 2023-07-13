@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VacantesController;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/dashboard', [DashboardController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/vacantes', [VacantesController::class,'index'])->middleware(['auth', 'verified'])->name('vacantes.index');
 Route::get('/vacantes/crear', [VacantesController::class,'create'])->middleware(['auth', 'verified'])->name('vacantes.create');
