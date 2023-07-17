@@ -1,15 +1,15 @@
-<form class="md:w-1/2">
+<form class="md:w-1/2" wire:submit.prevent="crearVacante">
     <!-- Titulo -->
     <div class="mt-4">
         <x-input-label for="titulo" :value="__('Titulo')" />
         <x-text-input id="titulo" class="block mt-2 w-full" type="text" wire:model="titulo" :value="old('titulo')"
-            placeholder='Titulo de la Vacante' required />
+            placeholder='Titulo de la Vacante'  />
         <x-input-error :messages="$errors->get('titulo')" class="mt-2" />
     </div>
     <!-- Salario -->
     <div class="mt-4">
         <x-input-label for="salario" :value="__('Salario')" />
-        <select id="salario" name="salario"
+        <select id="salario" wire:model="salario"
             class="block mt-2 w-full border-gray-300 dark:border-gray-700 
             dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 
             dark:focus:border-indigo-600 focus:ring-indigo-500 
@@ -23,7 +23,7 @@
     <!-- Categoria -->
     <div class="mt-4">
         <x-input-label for="categoria" :value="__('Categoria')" />
-        <select id="categoria" name="categoria"
+        <select id="categoria" wire:model="categoria"
             class="block mt-2 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 
             dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 
             focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm">
@@ -36,15 +36,15 @@
     <!-- Empresa -->
     <div class="mt-4">
         <x-input-label for="empresa" :value="__('Empresa')" />
-        <x-text-input id="empresa" class="block mt-2 w-full" type="text" name="empresa" :value="old('empresa')"
-            placeholder='Nombre de la empresa' required />
+        <x-text-input id="empresa" class="block mt-2 w-full" type="text" wire:model="empresa" :value="old('empresa')"
+            placeholder='Nombre de la empresa'  />
         <x-input-error :messages="$errors->get('empresa')" class="mt-2" />
     </div>
     <!-- Fecha límite postulación -->
     <div class="mt-4">
         <x-input-label for="ultimo_dia" :value="__('Fecha Límite de postulación')" />
-        <x-text-input id="ultimo_dia" class="block mt-2 w-full" type="date" name="ultimo_dia" :value="old('ultimo_dia')"
-            required />
+        <x-text-input id="ultimo_dia" class="block mt-2 w-full" type="date" wire:model="ultimo_dia" :value="old('ultimo_dia')"
+             />
         <x-input-error :messages="$errors->get('ultimo_dia')" class="mt-2" />
     </div>
     <!-- Empresa -->
@@ -54,14 +54,14 @@
             class="mt-2 w-full border-gray-300 dark:border-gray-700 
         dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 
         focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
-            name="descripcion" :value="old('descripcion')"
-            placeholder='Descripción del puesto, requerimientos del cargo, beneficios, etc.' required></textarea>
+        wire:model="descripcion" :value="old('descripcion')"
+            placeholder='Descripción del puesto, requerimientos del cargo, beneficios, etc.' ></textarea>
         <x-input-error :messages="$errors->get('descripcion')" class="mt-2" />
     </div>
     <!-- Imagen -->
     <div class="mt-4">
         <x-input-label for="imagen" :value="__('Imagen')" />
-        <x-text-input id="imagen" class="block mt-2 w-full" type="file" name="imagen" required />
+        <x-text-input id="imagen" class="block mt-2 w-full" type="file" wire:model="imagen" accept:"image/*"  />
         <x-input-error :messages="$errors->get('imagen')" class="mt-2" />
     </div>
     <div class="mt-4">
